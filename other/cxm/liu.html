@@ -40,21 +40,20 @@
 <div class="text-center" style="background:#336699;height:100px;padding-top:20px;">
 	<img src="https://sfs.wh.sdu.edu.cn/static/logo.png" style="width:180px">&nbsp;&nbsp;&nbsp;&nbsp;
 </div>
- <button style="position:fixed" onclick="change()">更改</button>
+ 
     
 <div class="container">
 	
 	<div class="row" style="background: #eee">
 		<div class="col-5 text-center" style="padding-left: 0;border-bottom: 1px solid #ccc">
-			<img id="img" src='1.png' style="width: 100%;box-shadow: 1px 1px 3px #777">
+			<img src='1.png' style="width: 100%;box-shadow: 1px 1px 3px #777">
 		</div>
 		<div class="col-7" style="margin-top: 30px;border-bottom: 1px solid #ccc">
-			<strong>学号: </strong> <a id="num">201700800199</a><br>
-			<strong>姓名: </strong> <a id="name">刘嘉璐</a><br>
+			<strong>学号: </strong> 201700800199<br>
+			<strong>姓名: </strong> 刘嘉璐<br>
 			<strong>学院: </strong> 机电与信息工程学院<br>
-			<strong>年级: </strong> <a id="grade">2017</a><br>
+			<strong>年级: </strong> 2017<br>
 		</div>
-		
 	</div>
 	
 	<div class="row">
@@ -93,9 +92,6 @@
   <script src="https://sfs.wh.sdu.edu.cn/static/js/main.js?v=2.9"></script>
   
 <script type="text/javascript">
-  function $(_){
-	return document.getElementById(_);
-	}
   var refresh_date = setInterval("getDate()",1000);
   var refresh_page = setInterval("no-showWarning()",60000);
 
@@ -117,17 +113,6 @@
 	clearInterval(refresh_date);
 	clearInterval(refresh_page);
   }
-  
-  function change(){
-    var num=prompt("请输入你的学号:");
-	$("num").text=num;
-	var name=prompt("请输入你的姓名:");
-	$("name").text=name;
-	$("grade").text="2017";
-	$("img").src="http://202.194.40.116:8080/pls/sduwh/cjdy_common_pkg.get_picture?image_id="+num;
-	
-	}
-	
 </script>
 
 </body>
