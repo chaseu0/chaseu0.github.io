@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+      <title>山东大学（威海）</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://sfs.wh.sdu.edu.cn/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://sfs.wh.sdu.edu.cn/static/css/c2g.css?v=2.2">
+    <link rel="stylesheet" href="https://sfs.wh.sdu.edu.cn/static/css/spinner.css">
+    <link rel="stylesheet" href="https://sfs.wh.sdu.edu.cn/static/css/sweetalert.css">
+</head>
+<style type="text/css">
+  .small-td{
+    font-size:10px;
+    padding:2px !important;
+  }
+  .wrapper {
+      position: relative;
+      min-height: 100%;
+      padding-bottom: 0px;
+      box-sizing: border-box;
+  }
+  .footer {
+      height: 120px;
+      width: 100%;
+      padding-top: 42px;
+      margin-top: 30px;
+/*      background:#f3f3f3;*/
+      color: #6c757d
+  }
+</style>
+<body class="bg-body anti">
+  <div class="wrapper">
+    
+<div class="text-center" style="background:#336699;height:100px;padding-top:20px;">
+	<img src="https://sfs.wh.sdu.edu.cn/static/logo.png" style="width:180px">&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+ <button style="position:absolute;top:0px;left:0px;background:#336699"  onclick="change()">更改</button>
+    
+<div class="container">
+	
+	<div class="row" style="background: #eee">
+		<div class="col-5 text-center" style="padding-left: 0;border-bottom: 1px solid #ccc">
+			<img id="img" src='../liu.png' style="width: 100%;box-shadow: 1px 1px 3px #777">
+		</div>
+		<div class="col-7" style="margin-top: 30px;border-bottom: 1px solid #ccc">
+			<strong>学号: </strong> <a id="num">201700800199</a><br>
+			<strong>姓名: </strong> <a id="name">刘嘉璐</a><br>
+			<strong>学院: </strong> 机电与信息工程学院<br>
+			<strong>年级: </strong> <a id="grade">2017</a><br>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<div class="col-12 text-center" style="margin-top: 20px">
+			<div id="times" class="text-center font-size-24 text-success " style="margin-bottom: 10px">2020-09-07</div>
+			
+				<div id="green-tag" class="c-white inline-block" style="width: 300px;height: 300px;border-radius: 1000px;background: #00CC66;padding-top: 80px;">
+					<strong class="font-size-24">批准入校</strong><br>
+					<span class="fa fa-check fa-5x"></span>
+				</div>
+				<div id="yellow-tag" class="no-show" style="width: 300px;height: 300px;border-radius: 1000px;background: #eee;padding-top: 80px">
+					<strong class="font-size-24">请重新扫码</strong><br>
+					<span class="fa fa-exclamation fa-5x"></span>
+				</div>
+				<br><br>
+				<strong>请在30秒内出示此通行页面给工作人员!</strong>
+			
+		</div>
+	</div>
+</div>
+
+    
+    <div class="footer navbar-fixed-bottom text-center">
+      <p>©山东大学(威海) 版权所有 Copyright@2020<br>网络与信息管理中心</p>
+    </div>
+     
+  </div>
+  <script src="https://sfs.wh.sdu.edu.cn/static/js/vendor/modernizr.js"></script>
+  <script src="https://sfs.wh.sdu.edu.cn/static/js/vendor/jquery.js"></script>
+  <script src="https://sfs.wh.sdu.edu.cn/static/js/bootstrap.min.js"></script>
+  <script src="https://sfs.wh.sdu.edu.cn/static/js/jquery.leanModal.min.js"></script>
+  <script src="https://sfs.wh.sdu.edu.cn/static/js/jquery.tablesorter.min.js"></script>
+  <script src="https://sfs.wh.sdu.edu.cn/static/js/datepicker.js"></script>
+  <script src="https://sfs.wh.sdu.edu.cn/static/js/sweetalert.min.js"></script>
+  <script src="https://sfs.wh.sdu.edu.cn/static/js/callbacks.js?v=2.9"></script>
+  <script src="https://sfs.wh.sdu.edu.cn/static/js/main.js?v=2.9"></script>
+  
+<script type="text/javascript">
+  function $(_){
+	return document.getElementById(_);
+	}
+  var refresh_date = setInterval("getDate()",1000);
+  var refresh_page = setInterval("no-showWarning()",60000);
+
+  function getDate(){
+    var date = new Date();
+    var date1 = date.toLocaleString();
+    var div1 = document.getElementById("times");
+    div1.innerHTML = date1;
+  }
+  function refresh(){
+    window.location.href = window.location.href;
+  }
+  function showWarning(){
+  	$("#times").addClass("no-show");
+  	$("#green-tag").removeClass("inline-block");
+	$("#green-tag").addClass("no-show");
+	$("#yellow-tag").removeClass("no-show");
+	$("#yellow-tag").addClass("inline-block");
+	clearInterval(refresh_date);
+	clearInterval(refresh_page);
+  }
+  
+  function change(){
+    var num=prompt("请输入你的学号:");
+	$("num").text=num;
+	var name=prompt("请输入你的姓名:");
+	$("name").text=name;
+	$("grade").text="2017";
+	$("img").src="http://202.194.40.116:8080/pls/sduwh/cjdy_common_pkg.get_picture?image_id="+num;
+	
+	}
+	
+</script>
+
+</body>
+</html>
